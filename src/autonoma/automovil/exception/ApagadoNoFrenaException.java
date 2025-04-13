@@ -8,8 +8,8 @@ package autonoma.automovil.exception;
  *
  * @author juanb
  */
-public class ApagadoNoAcelera extends RuntimeException{
-    public ApagadoNoAcelera(){
-        super("El automovil esta pagado, por lo tanto no puede acelerar");
+public class ApagadoNoFrenaException extends RuntimeException{
+    public ApagadoNoFrenaException(){
+        super("El automovil esta apagado, por lo tanto no puede frenar");
     }
 }

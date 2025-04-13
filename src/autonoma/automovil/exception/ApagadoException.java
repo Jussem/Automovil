@@ -8,8 +8,8 @@ package autonoma.automovil.exception;
  *
  * @author juanb
  */
-public class YaEncendidoException extends RuntimeException{
-    public YaEncendidoException(){
-        super("El carro esta encendido");
+public class ApagadoException extends RuntimeException{
+    public ApagadoException(){
+        super("El Automovil esta apagado");
     }
 }

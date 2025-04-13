@@ -110,4 +110,10 @@ public class Vehiculo {
             throw new PatinaException();
         }
     }
+    public boolean encender() {
+        return this.motor.encender(); // motor.encender() retorna true o false
+    }
+    public boolean apagar(){
+        return this.motor.apagar();
+    }
 }

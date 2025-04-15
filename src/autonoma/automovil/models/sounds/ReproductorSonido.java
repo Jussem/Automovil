@@ -25,7 +25,7 @@ public class ReproductorSonido {
         try {
             detener(); // Detiene cualquier sonido que esté sonando
 
-            String ruta = "/autonoma/simulador/sounds/" + nombreArchivo;
+            String ruta = "/autonoma/automovil/models/sounds/" + nombreArchivo;
             InputStream inputStream = ReproductorSonido.class.getResourceAsStream(ruta);
 
             if (inputStream == null) {

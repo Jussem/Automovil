@@ -5,11 +5,20 @@
 package autonoma.automovil.exception;
 
 /**
- *
- * @author juanb
+ * Excepción que indica que se intentó frenar cuando el automóvil está apagado.
+ * Esta excepción se lanza al invocar una acción de frenado sin que el automóvil haya sido encendido previamente.
+ * 
+ * @author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
-public class ApagadoNoFrenaException extends RuntimeException{
-    public ApagadoNoFrenaException(){
+public class ApagadoNoFrenaException extends RuntimeException {
+
+    /**
+     * Crea una nueva instancia de ApagadoNoFrenaException con un mensaje predeterminado.
+     * El mensaje indica que no se puede frenar porque el automóvil está apagado.
+     */
+    public ApagadoNoFrenaException() {
         super("El automovil esta apagado, por lo tanto no puede frenar");
     }
 }

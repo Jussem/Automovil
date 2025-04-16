@@ -10,20 +10,31 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 /**
- *
- * @author juanb
+ * Clase utilitaria encargada de reproducir sonidos en formato WAV desde recursos internos.
+ * Soporta la reproducción en bucle y la detención de sonidos actuales.
+ * <p>
+ * Los sonidos deben estar ubicados dentro del paquete:
+ * <code>/autonoma/automovil/models/sounds/</code>.
+ * </p>
+ * 
+ * @author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class ReproductorSonido {
+
+    /** Clip de sonido actual en reproducción */
     private static Clip clip;
 
     /**
-     * Reproduce un archivo de sonido en bucle.
+     * Reproduce un archivo de sonido ubicado en el paquete de recursos.
+     * Si ya hay un sonido reproduciéndose, lo detiene primero.
      *
-     * @param nombreArchivo Nombre del archivo de sonido (con extensión) ubicado en /autonoma/automovil/sounds/
+     * @param nombreArchivo Nombre del archivo de sonido con extensión, por ejemplo: "motor.wav".
      */
     public static void reproducir(String nombreArchivo) {
         try {
-            detener(); // Detiene cualquier sonido que esté sonando
+            detener(); // Detiene cualquier sonido previo
 
             String ruta = "/autonoma/automovil/models/sounds/" + nombreArchivo;
             InputStream inputStream = ReproductorSonido.class.getResourceAsStream(ruta);
@@ -45,7 +56,7 @@ public class ReproductorSonido {
     }
 
     /**
-     * Detiene y libera cualquier sonido que se esté reproduciendo.
+     * Detiene la reproducción de cualquier sonido activo y libera los recursos asociados.
      */
     public static void detener() {
         try {

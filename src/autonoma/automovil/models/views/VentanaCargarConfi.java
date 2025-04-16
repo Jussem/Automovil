@@ -14,8 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author juanb
+ *@author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class VentanaCargarConfi extends javax.swing.JFrame {
     private Vehiculo vehiculo;

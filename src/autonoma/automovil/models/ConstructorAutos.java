@@ -9,11 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
- * @author juanb
+ * Clase encargada de leer un archivo de configuración y construir objetos Vehiculo
+ * basados en los parámetros extraídos del archivo.
+ * 
+ * @author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class ConstructorAutos {
-     /** Objeto lector para manejar la lectura del archivo */
+
+    /** Objeto lector para manejar la lectura del archivo */
     private Lector lector;
 
     /**
@@ -37,39 +42,45 @@ public class ConstructorAutos {
 
     /**
      * Lee el archivo de configuración y crea un objeto Vehiculo.
+     * El archivo debe contener información sobre el tipo de llantas y motor del vehículo.
      * 
      * @param ruta Ruta del archivo de configuración.
      * @return Vehiculo configurado con llantas y motor.
-     * @throws IOException Si el archivo no existe o hay error en lectura.
+     * @throws IOException Si el archivo no existe o hay un error en la lectura.
      */
     public Vehiculo leerArchivo(String ruta) throws IOException {
+        // Lee las líneas del archivo
         ArrayList<String> lineas = lector.leer(ruta);
 
+        // Verifica si las líneas son válidas
         if (lineas.size() < 2 || !lineaValida(lineas.get(0)) || !lineaValida(lineas.get(1))) {
             throw new IOException("Archivo de configuración incompleto.");
         }
 
+        // Extrae el tipo de llantas y motor de las líneas
         String tipoLlantas = extraerTipo(lineas.get(0));
         String tipoMotor = extraerTipo(lineas.get(1));
 
+        // Crea objetos Llanta y Motor basados en los tipos extraídos
         Llanta llantas = crearLlantas(tipoLlantas);
         Motor motor = crearMotor(tipoMotor);
 
-        return new Vehiculo(motor,llantas);
+        // Retorna un nuevo objeto Vehiculo con las llantas y motor configurados
+        return new Vehiculo(motor, llantas);
     }
 
     /**
      * Verifica si una línea contiene al menos dos partes separadas por espacios.
      * 
      * @param linea Línea del archivo.
-     * @return true si es válida, false en caso contrario.
+     * @return true si la línea contiene al menos dos partes, false en caso contrario.
      */
     private boolean lineaValida(String linea) {
         return linea != null && linea.split("\\s+").length >= 2;
     }
 
     /**
-     * Extrae el segundo valor de una línea de texto.
+     * Extrae el segundo valor de una línea de texto (el tipo de llanta o motor).
      * 
      * @param linea Línea del archivo.
      * @return Segundo valor (tipo) como texto limpio.
@@ -108,3 +119,4 @@ public class ConstructorAutos {
         }
     }
 }
+

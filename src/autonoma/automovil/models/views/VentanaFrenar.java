@@ -5,8 +5,9 @@
 package autonoma.automovil.models.views;
 
 /**
- *
- * @author juanb
+ *@author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class VentanaFrenar extends javax.swing.JFrame {
 

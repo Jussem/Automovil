@@ -8,8 +8,9 @@ import autonoma.automovil.models.sounds.ReproductorSonido;
 import javax.swing.ImageIcon;
 
 /**
- *
- * @author juanb
+ *@author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class VentanaEncender extends javax.swing.JFrame {
 

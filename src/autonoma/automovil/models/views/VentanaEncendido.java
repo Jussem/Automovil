@@ -10,8 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
 /**
- *
- * @author juanb
+ *@author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
 public class VentanaEncendido extends javax.swing.JDialog {
     private Vehiculo vehiculo;

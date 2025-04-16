@@ -5,11 +5,20 @@
 package autonoma.automovil.exception;
 
 /**
- *
- * @author juanb
+ * Excepción que indica que el automóvil está patinando.
+ * Esta excepción se lanza cuando el automóvil pierde tracción o estabilidad en condiciones de manejo.
+ * 
+ * @author Juan José Morales A.
+ * @version 20250416
+ * @since 1.0
  */
-public class PatinaException extends RuntimeException{
-    public PatinaException(){
-    super("El Automovil esta patinando");
+public class PatinaException extends RuntimeException {
+
+    /**
+     * Crea una nueva instancia de PatinaException con un mensaje predeterminado.
+     * El mensaje indica que el automóvil está patinando y ha perdido tracción.
+     */
+    public PatinaException() {
+        super("El Automovil está patinando");
     }
 }

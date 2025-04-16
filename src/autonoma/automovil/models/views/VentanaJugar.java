@@ -78,7 +78,7 @@ private Llanta llanta;
     }
     
     public void actializarValorActual(){
-        velocidadActual.setText("Velocidad actual: " + this.motor.getVelocidadActual() + " km/h");
+        velocidadActual.setText("Vel: " + this.motor.getVelocidadActual() + " km/h");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,6 +97,8 @@ private Llanta llanta;
         velocidadActual = new javax.swing.JLabel();
         jlabelAcelerar = new javax.swing.JLabel();
         jLabelFrenar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,7 +116,7 @@ private Llanta llanta;
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/fondoPrincipal.gif"))); // NOI18N
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelApagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/apagar.gif"))); // NOI18N
         jLabelApagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,8 +131,6 @@ private Llanta llanta;
                 jLabelEncenderMouseClicked(evt);
             }
         });
-
-        velocidadActual.setText("jLabel4");
 
         jlabelAcelerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/acelerar.jpg"))); // NOI18N
         jlabelAcelerar.setText("jLabel4");
@@ -148,6 +148,26 @@ private Llanta llanta;
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Adobe Myungjo Std M", 0, 18)); // NOI18N
+        jButton1.setLabel("Cerrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/informacion.gif"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -155,13 +175,24 @@ private Llanta llanta;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelEncender)
-                    .addComponent(jLabelApagar))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelApagar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlabelAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addComponent(velocidadActual))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(velocidadActual, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(99, 99, 99))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,10 +204,15 @@ private Llanta llanta;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelEncender)
                         .addGap(6, 6, 6))
-                    .addComponent(velocidadActual, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlabelAcelerar)
-                        .addComponent(jLabelFrenar))))
+                        .addComponent(jLabelFrenar)
+                        .addComponent(velocidadActual))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel3)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -302,8 +338,30 @@ private Llanta llanta;
     }
     }//GEN-LAST:event_jLabelEncenderMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        String mensaje = "Motor: " + this.motor.getNombre() + "\n" +
+                     "Velocidad Maxima Motor: " + this.motor.getObtenerVelocidadMaxima() + "\n" +
+                     "Velocidad Actual: " + this.motor.getVelocidadActual() + "\n" +
+                     "¿Está encendido?: " + this.motor.getEncendido();
+
+        JOptionPane.showMessageDialog(this, mensaje);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelApagar;
     private javax.swing.JLabel jLabelEncender;
     private javax.swing.JLabel jLabelFrenar;

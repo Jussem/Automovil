@@ -19,7 +19,7 @@ public class VentanaInicial extends javax.swing.JFrame {
     public VentanaInicial() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ReproductorSonido.reproducir("sonidoinicial.wav");
+        ReproductorSonido.reproducir("sonidojuego.wav");
         
         try{
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/automovil/models/images/carroFondo.png")).getImage());

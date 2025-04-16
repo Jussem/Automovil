@@ -4,17 +4,35 @@
  */
 package autonoma.automovil.models.views;
 
+import autonoma.automovil.models.Escritor;
+import autonoma.automovil.models.EscritorArchivoTextoPlano;
+import autonoma.automovil.models.Vehiculo;
+import autonoma.automovil.models.sounds.ReproductorSonido;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juanb
  */
 public class VentanaCargarConfi extends javax.swing.JFrame {
-
+    private Vehiculo vehiculo;
     /**
      * Creates new form VentanaCargarConfi
      */
-    public VentanaCargarConfi() {
+    public VentanaCargarConfi(Vehiculo vehiculo) {
         initComponents();
+         this.setLocationRelativeTo(null);
+        ReproductorSonido.reproducir("sonidoinicial.wav");
+        
+        try{
+            this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/automovil/models/images/carroFondo.png")).getImage());
+        }catch(Exception e){
+            System.out.println("la imagen no fue encontrada");
+        }
+        this.vehiculo=vehiculo;
     }
 
     /**
@@ -26,57 +44,128 @@ public class VentanaCargarConfi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnConfi = new javax.swing.JButton();
+        jComboBoxLlantas = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboMotor = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnConfi.setText("Cargar Configuración");
+        btnConfi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfiMouseClicked(evt);
+            }
+        });
+        btnConfi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfiActionPerformed(evt);
+            }
+        });
+
+        jComboBoxLlantas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LLantas Buenas", "Llantas Bonitas", "Llantas Baratas" }));
+        jComboBoxLlantas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+        jComboBoxLlantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxLlantasActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Tipo de Llantas");
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Tipo de motor");
+
+        jComboMotor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1000 cc\t", "2000 cc", "3000 cc\t" }));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/fondoConfig.gif"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBoxLlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(btnConfi)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboMotor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxLlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btnConfi, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaCargarConfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaCargarConfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaCargarConfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaCargarConfi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnConfiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfiMouseClicked
+        ReproductorSonido.detener();
+        this.dispose();
+    }//GEN-LAST:event_btnConfiMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaCargarConfi().setVisible(true);
-            }
-        });
-    }
+    private void btnConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiActionPerformed
+        ReproductorSonido.detener();
+        Escritor escritorArchivo = new EscritorArchivoTextoPlano("config.txt");
+        String tipoMotor = (String)this.jComboMotor.getSelectedItem();
+        String tipoLlanta = (String)this.jComboBoxLlantas.getSelectedItem();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Llantas ").append(tipoLlanta);
+
+        StringBuilder sbMotor = new StringBuilder();
+        sbMotor.append("Motor ").append(tipoMotor);
+        ArrayList<String> textoArchivo = new ArrayList();
+        textoArchivo.add(sb.toString());
+        textoArchivo.add(sbMotor.toString());
+        try{
+            escritorArchivo.escribir(textoArchivo);
+            VentanaInicial ventana = new VentanaInicial();
+            ventana.setVisible(true);
+            this.dispose();
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnConfiActionPerformed
+
+    private void jComboBoxLlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLlantasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxLlantasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfi;
+    private javax.swing.JComboBox<String> jComboBoxLlantas;
+    private javax.swing.JComboBox<String> jComboMotor;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

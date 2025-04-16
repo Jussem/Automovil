@@ -52,6 +52,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/automovil/models/images/boton.gif"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,10 +83,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIniciarMouseClicked
-        /*VentanaCargarConfi ventana = new VentanaCargarConfi(this.vehiculo);
-        ventana.setVisible(true);*/
+       VentanaCargarConfi ventana = new VentanaCargarConfi(this.vehiculo);
+        ventana.setVisible(true);
 
     }//GEN-LAST:event_btnIniciarMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        VentanaCargarConfi ventana = new VentanaCargarConfi(this.vehiculo);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnIniciar;

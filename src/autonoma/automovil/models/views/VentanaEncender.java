@@ -19,7 +19,7 @@ public class VentanaEncender extends javax.swing.JFrame {
     public VentanaEncender() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ReproductorSonido.reproducir("sonidoinicial.wav");
+        ReproductorSonido.reproducir("motor.wav");
         
         try{
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/automovil/models/images/carroFondo.png")).getImage());
